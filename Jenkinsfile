@@ -5,14 +5,14 @@ pipeline {
         }
     }
 	triggers {
-		pollSCM '*/5 * * * *'
+		pollSCM '* * * * *'
 	}
     stages {
         stage('Build') {
             steps {
                 echo "Building.."
                 sh '''
-                cd python
+                cd myapp
                 '''
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-				cd python
+				cd myapp
                 python3 test.py
                 '''
             }
